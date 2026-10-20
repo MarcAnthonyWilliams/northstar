@@ -1,0 +1,2 @@
+# northstar
+Agentic budgeting application.
