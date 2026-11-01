@@ -1,0 +1,18 @@
+%%{ c4: container }%%
+graph TB
+
+    Person(User, "Northstar User")
+
+    subgraph Northstar {
+        Container(Frontend, "Frontend", "React / TypeScript", "Financial dashboard and user interface")
+
+        Container(Backend, "Backend API", "Python / FastAPI", "Application logic and financial planning")
+
+        ContainerDb(DB, "PostgreSQL", "PostgreSQL", "Persistent user and financial data")
+    }
+
+    User -->|Interacts with| Frontend
+
+    Frontend -->|HTTPS / REST API| Backend
+
+    Backend -->|Reads and writes| DB

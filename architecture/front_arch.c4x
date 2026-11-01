@@ -1,0 +1,44 @@
+
+%%{ c4: component }%%
+graph TB
+
+    Person(User, "Northstar User")
+
+    subgraph Frontend {
+        direction TB
+
+        Component(Landing, "Landing Page", "Public introduction to Northstar")
+
+        Component(Login, "Login Page", "User authentication")
+
+        Component(Budget, "Budgeting Page", "Financial overview, goals, and plans")
+
+        Component(Profile, "Profile Page", "User information, preferences, and linked banks")
+
+        Component(Nav, "Navigation", "Routes users between pages")
+
+        Component(API, "API Client", "Communicates with the backend")
+    }
+
+    Container(Backend, "Backend API", "Python / FastAPI")
+
+    User -->|Visits| Landing
+
+    Landing -->|Sign in| Login
+
+    Login -->|Successful authentication| Budget
+
+    Budget -->|Manage account| Profile
+
+    Profile -->|Return to dashboard| Budget
+
+    Nav -->|Routes to| Landing
+    Nav -->|Routes to| Login
+    Nav -->|Routes to| Budget
+    Nav -->|Routes to| Profile
+
+    Login -->|Authentication requests| API
+    Budget -->|Financial data requests| API
+    Profile -->|Profile requests| API
+
+    API -->|HTTPS / REST| Backend
