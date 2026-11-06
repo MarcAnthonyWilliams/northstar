@@ -1,0 +1,8 @@
+%%{ c4: system-context }%%
+graph TB
+
+    Person(User, "Northstar User")
+
+    System(Northstar, "Northstar", "Personal Financial Management Platform")
+
+    User -->|Manages finances, savings goals, and financial plans| Northstar

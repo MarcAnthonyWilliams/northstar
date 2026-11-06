@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { navigation } from '../navigation'
 import './NavBar.css'
 
-export default function NavBar({ activePage }) {
+export default function NavBar({ activePage, onLogout }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const toggleRef = useRef(null)
 
@@ -52,7 +52,7 @@ export default function NavBar({ activePage }) {
             ))}
           </ul>
         </nav>
-        <span className="navbar-caption">A clearer way forward</span>
+        <button type="button" className="logout-button" onClick={onLogout}>Log out ↗</button>
       </div>
     </header>
   )
